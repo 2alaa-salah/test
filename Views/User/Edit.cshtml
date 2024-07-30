@@ -1,0 +1,50 @@
+﻿@model TechnoEvents.Models.User
+
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Edit Profile</h2>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit" asp-controller="User" method="post">
+                        <div class="form-group">
+                            <label for="UserName">Username</label>
+                            <input type="text" class="form-control" id="UserName" name="UserName" value="@Model.UserName" />
+                        </div>
+                        <div class="form-group">
+                            <label for="FirstName">First Name</label>
+                            <input type="text" class="form-control" id="FirstName" name="FirstName" value="@Model.FirstName" />
+                        </div>
+                        <div class="form-group">
+                            <label for="LastName">Last Name</label>
+                            <input type="text" class="form-control" id="LastName" name="LastName" value="@Model.LastName" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Email">Email</label>
+                            <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="CurrentPassword">Current Password</label>
+                            <input type="password" class="form-control" id="CurrentPassword" name="CurrentPassword" />
+                        </div>
+                        <div class="form-group">
+                            <label for="NewPassword">New Password</label>
+                            <input type="password" class="form-control" id="NewPassword" name="NewPassword" />
+                        </div>
+                        <div class="form-group">
+                            <label for="ConfirmNewPassword">Confirm New Password</label>
+                            <input type="password" class="form-control" id="ConfirmNewPassword" name="ConfirmNewPassword" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<TechnoEvents.Models.Event>
+
+@{
+    ViewData["Title"] = "Events";
+}
+
+<h2>Public Events</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Date.ToShortDateString()</td>
+                <td>@item.Location</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.EventId">See Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

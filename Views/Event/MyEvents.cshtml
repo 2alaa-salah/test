@@ -1,0 +1,54 @@
+﻿@model IEnumerable<TechnoEvents.Models.Event>
+
+@{
+    ViewData["Title"] = "My Events";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">My Events</h2>
+                </div>
+                <div class="card-body">
+                    @if (Model.Any())
+                    {
+                        <table class="table table-striped">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Date</th>
+                                    <th>Location</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Title</td>
+                                        <td>@item.Date.ToShortDateString()</td>
+                                        <td>@item.Location</td>
+                                        <td>
+                                            <a asp-action="Details" asp-controller="Event" asp-route-id="@item.EventId" class="btn btn-info btn-sm">See Details</a>
+                                            <a asp-action="Edit" asp-controller="Event" asp-route-id="@item.EventId" class="btn btn-warning btn-sm">Edit</a>
+                                            <a asp-action="Delete" asp-controller="Event" asp-route-id="@item.EventId" class="btn btn-danger btn-sm">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p class="text-center">You have no events scheduled.</p>
+                    }
+                </div>
+                <div class="card-footer text-right">
+                    <a asp-controller="Event" asp-action="Create" class="btn btn-primary">Add New Event</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
